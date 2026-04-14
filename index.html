@@ -3,103 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RevUp | Performance Automotive & Engineering</title>
+    <title>REVUP | Ultra-Performance Engineering</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Fontes: Inter para leitura e Michroma para aspecto técnico futurista -->
     <link href="https://googleapis.com" rel="stylesheet">
 </head>
-<body>
-    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+<body class="dark-engine">
+    <!-- Cursor Personalizado (Interação Premium) -->
+    <div id="custom-cursor"></div>
 
-    <header class="header" role="banner">
-        <div class="container header-inner">
-            <div class="logo" aria-label="RevUp Home">REV<span>UP</span></div>
-            
-            <nav class="nav" aria-label="Navegação Principal">
-                <ul class="nav-list">
-                    <li><a href="#garagem">Garagem</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+    <header class="top-nav">
+        <div class="container nav-box">
+            <div class="brand">REV<span>UP</span></div>
+            <nav aria-label="Navegação de Elite">
+                <ul class="menu-list">
+                    <li><a href="#hangar" class="nav-link">Hangar</a></li>
+                    <li><a href="#lab" class="nav-link">O Laboratório</a></li>
+                    <li><a href="#contato" class="nav-link">Consultoria</a></li>
                 </ul>
             </nav>
-
-            <div class="a11y-controls" role="group" aria-label="Ajustes de Acessibilidade">
-                <button onclick="fontSize(1)" title="Aumentar Texto" aria-label="Aumentar fonte">A+</button>
-                <button onclick="fontSize(-1)" title="Diminuir Texto" aria-label="Diminuir fonte">A-</button>
-                <button onclick="toggleContrast()" id="contrast-toggle" title="Alto Contraste">◐</button>
+            <div class="controls">
+                <button onclick="engine.ui.zoom(1.1)" aria-label="Zoom In">A+</button>
+                <button onclick="engine.ui.contrast()" class="btn-neon">◐</button>
             </div>
         </div>
     </header>
 
-    <main id="main-content">
-        <!-- Hero Section com Background Dinâmico -->
-        <section class="hero reveal">
-            <div class="container hero-grid">
-                <div class="hero-text">
-                    <span class="badge">Performance Division</span>
-                    <h1>Engenharia que desafia a física.</h1>
-                    <p>Especialistas em reprogramação eletrônica, calibração de chassis e mecânica de alta performance para máquinas de elite.</p>
-                    <div class="hero-btns">
-                        <a href="#garagem" class="btn-primary">Ver Projetos</a>
-                        <a href="#servicos" class="btn-secondary">Nossos Serviços</a>
-                    </div>
+    <main>
+        <!-- Hero: Impacto Cinematográfico -->
+        <section class="hero-split">
+            <div class="hero-info reveal">
+                <span class="label-tech">// RAW POWER UNLEASHED</span>
+                <h1>PRECISÃO <br><span class="glitch">ABSOLUTA</span></h1>
+                <p>Projetamos o impossível. Calibração de motores, aerodinâmica computacional e dinâmica veicular de nível competitivo.</p>
+                <div class="btn-group">
+                    <a href="#hangar" class="btn-prime">Explorar Fleet</a>
+                    <a href="#lab" class="btn-outline">Ver Protocolos</a>
                 </div>
-                <div class="hero-image">
-                    <img src="https://unsplash.com" alt="Motor de alta performance exposto">
+            </div>
+            <div class="hero-visual reveal">
+                <div class="image-reveal">
+                    <img src="https://unsplash.com" alt="Supercarro Detalhe">
                 </div>
             </div>
         </section>
 
-        <!-- Garagem Dinâmica -->
-        <section id="garagem" class="section reveal">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nossa Garagem</h2>
-                    <p>Projetos recentes que saíram do nosso dinamômetro diretamente para as pistas.</p>
-                </div>
-                <div id="grid-carros" class="grid-layout">
-                    <!-- Injetado via JS -->
-                </div>
+        <!-- Seção de Dados Dinâmicos -->
+        <section id="hangar" class="section container">
+            <div class="section-meta reveal">
+                <h2 class="title-h2">Hangar de Performance</h2>
+                <div class="divider"></div>
+            </div>
+            <div id="showroom-mount" class="fleet-grid">
+                <!-- Injeção via Componentes JS -->
             </div>
         </section>
 
-        <!-- Carrossel de Componentes Técnicos -->
-        <section id="servicos" class="section section-dark reveal">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Especialidades</h2>
+        <!-- Seção de Tecnologia (Expandables) -->
+        <section id="lab" class="section-dark">
+            <div class="container grid-2 reveal">
+                <div class="lab-text">
+                    <h2 class="title-h2">The Lab</h2>
+                    <p>Nossa metodologia envolve o uso de sensores de nível aeroespacial para mapear cada milissegundo de ignição.</p>
+                    <div id="accordion-mount"></div>
                 </div>
-                <div class="carousel" role="region" aria-label="Carrossel de tecnologia">
-                    <div id="carousel-track" class="carousel-track">
-                        <!-- Injetado via JS -->
-                    </div>
-                    <div class="carousel-controls">
-                        <button onclick="moveCarousel(-1)" aria-label="Slide anterior">❮</button>
-                        <button onclick="moveCarousel(1)" aria-label="Próximo slide">❯</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ com Acordeão -->
-        <section id="faq" class="section reveal">
-            <div class="container container-narrow">
-                <div class="section-header">
-                    <h2 class="section-title">Dúvidas Técnicas</h2>
-                </div>
-                <div id="faq-list" class="accordion-group">
-                    <!-- Injetado via JS -->
+                <div class="lab-visual">
+                    <img src="https://unsplash.com" alt="Motor em Teste">
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <div class="logo">REV<span>UP</span></div>
-                <p>Onde a engenharia de precisão encontra a paixão pela velocidade.</p>
-            </div>
-            <p class="copyright">&copy; 2026 RevUp Performance. Todos os direitos reservados.</p>
+        <div class="container footer-inner">
+            <div class="brand">REV<span>UP</span></div>
+            <p>© 2026 // High Performance Engineering</p>
         </div>
     </footer>
 
