@@ -1,82 +1,79 @@
-/* --- DADOS DA APLICAÇÃO (Single Source of Truth) --- */
-const VEICULOS = [
-    { id: 1, nome: "Hyperion GT", potencia: "1200cv", preco: "R$ 4.2M", img: "car1.jpg" },
-    { id: 2, nome: "Tesla Model S Plaid", potencia: "1020cv", preco: "R$ 1.1M", img: "car2.jpg" },
-    { id: 3, nome: "Porsche Taycan", potencia: "761cv", preco: "R$ 980k", img: "car3.jpg" }
-];
-
-const FAQS = [
-    { q: "Qual o prazo de entrega?", a: "Para modelos personalizados, o prazo médio é de 120 dias." },
-    { q: "Possuem garantia blindada?", a: "Sim, todos os nossos veículos contam com 5 anos de garantia total." }
-];
+/* --- BANCO DE DADOS (Objeto de Configuração) --- */
+const DATA = {
+    carros: [
+        { nome: "Turbo-S Concept", specs: "850cv | Tração Integral", cor: "Carbon Gray" },
+        { nome: "Street Fighter GT", specs: "620cv | RWD", cor: "Racing Red" },
+        { nome: "Volt-X Electric", specs: "1100nm | Dual Motor", cor: "Neon Blue" }
+    ],
+    faq: [
+        { q: "Vocês fazem remap em carros originais?", a: "Sim, trabalhamos com estágios 1, 2 e 3 respeitando os limites do conjunto mecânico." },
+        { q: "Qual a garantia dos serviços?", a: "Oferecemos 12 meses de garantia em mão de obra e suporte técnico vitalício para remaps." }
+    ],
+    tech: ["Turbinas Roletadas", "Suspensão Ativa", "Chassi Tubular", "ECU Programável"]
+};
 
 /* --- RENDERIZAÇÃO DINÂMICA --- */
-const renderContent = () => {
-    // Render Cards de Modelos
-    const gridModelos = document.getElementById('grid-modelos');
-    gridModelos.innerHTML = VEICULOS.map(carro => `
-        <article class="card" aria-labelledby="car-${carro.id}">
-            <h3 id="car-${carro.id}">${carro.nome}</h3>
-            <p>Potência: <strong>${carro.potencia}</strong></p>
-            <p>A partir de: ${carro.preco}</p>
-            <button class="btn-primary" style="margin-top: 15px; width: 100%;">Reservar</button>
+const initApp = () => {
+    // Injetar Cards da Garagem
+    const garagem = document.getElementById('grid-carros');
+    garagem.innerHTML = DATA.carros.map(carro => `
+        <article class="card">
+            <h3>${carro.nome}</h3>
+            <p style="color: var(--primary)">${carro.specs}</p>
+            <p>${carro.cor}</p>
         </article>
     `).join('');
 
-    // Render Acordeão (FAQ)
-    const accordionContainer = document.getElementById('faq-accordion');
-    accordionContainer.innerHTML = FAQS.map((faq, index) => `
-        <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false" onclick="toggleAccordion(this)">
-                ${faq.q} <span>+</span>
-            </button>
-            <div class="accordion-content" style="display: none; padding: 20px; color: var(--text-muted);">
-                ${faq.a}
-            </div>
+    // Injetar Carrossel
+    const track = document.getElementById('carousel-track');
+    track.innerHTML = DATA.tech.map(t => `
+        <div class="carousel-item"><h3>${t}</h3></div>
+    `).join('');
+
+    // Injetar FAQ (Acordeão)
+    const faqList = document.getElementById('faq-list');
+    faqList.innerHTML = DATA.faq.map((f, i) => `
+        <div class="acc-item">
+            <button class="acc-trigger" onclick="toggleAcc(${i})">${f.q}</button>
+            <div class="acc-panel" id="panel-${i}"><p style="padding: 0 20px 20px">${f.a}</p></div>
         </div>
     `).join('');
 };
 
-/* --- ACESSIBILIDADE: GESTÃO DE FONTE --- */
-let currentFontSize = 100;
-const changeFontSize = (type) => {
-    currentFontSize += (type === 'inc' ? 10 : -10);
-    document.documentElement.style.fontSize = `${currentFontSize}%`;
-};
+/* --- ACESSIBILIDADE: CONTROLE DE FONTE --- */
+let baseSize = 100;
+function fontSize(mod) {
+    baseSize += (mod * 10);
+    document.documentElement.style.fontSize = `${baseSize}%`;
+}
 
-const toggleContrast = () => {
+function toggleContrast() {
     document.body.classList.toggle('high-contrast');
-    const isHigh = document.body.classList.contains('high-contrast');
-    localStorage.setItem('high-contrast', isHigh);
-};
+}
 
-/* --- COMPONENTES: ACORDEÃO --- */
-const toggleAccordion = (btn) => {
-    const content = btn.nextElementSibling;
-    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-    
-    btn.setAttribute('aria-expanded', !isExpanded);
-    content.style.display = isExpanded ? 'none' : 'block';
-    btn.querySelector('span').textContent = isExpanded ? '+' : '-';
-};
+/* --- COMPONENTES: ACORDEÃO E CARROSSEL --- */
+function toggleAcc(index) {
+    const panel = document.getElementById(`panel-${index}`);
+    const isOpened = panel.style.maxHeight !== '0px' && panel.style.maxHeight !== '';
+    panel.style.maxHeight = isOpened ? '0px' : '200px';
+}
 
-/* --- ANIMAÇÃO SCROLL REVEAL --- */
-const scrollReveal = () => {
-    const elements = document.querySelectorAll('.reveal');
-    elements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < window.innerHeight - 100) {
-            el.classList.add('active');
-        }
+let slide = 0;
+function moveCarousel(dir) {
+    const track = document.getElementById('carousel-track');
+    slide = (slide + dir + DATA.tech.length) % DATA.tech.length;
+    track.style.transform = `translateX(-${slide * 100}%)`;
+}
+
+/* --- SCROLL REVEAL (Intersection Observer) --- */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
     });
-};
+}, { threshold: 0.1 });
 
-/* --- INICIALIZAÇÃO --- */
+// Ignição do Sistema
 window.addEventListener('DOMContentLoaded', () => {
-    renderContent();
-    window.addEventListener('scroll', scrollReveal);
-    scrollReveal(); // Trigger inicial
-
-    // Persistência de contraste
-    if (localStorage.getItem('high-contrast') === 'true') toggleContrast();
+    initApp();
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 });
