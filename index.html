@@ -1,189 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AutoPrime | Engenharia & Performance</title>
-  <meta name="description" content="A jornada da precisão automotiva: da engenharia de pistas ao asfalto das cidades." />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoPrime | The Future of Speed</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header" id="topo">
-    <div class="header-inner">
-      <a class="logo" href="#inicio" aria-label="Voltar ao início">
-        <!-- Substitua pela sua logo de carros -->
-        <img src="./img/logo-auto.png" alt="Logo AutoPrime" />
-      </a>
-
-      <div class="site-title">AutoPrime: A Jornada da Alta Performance</div>
-
-      <nav class="navbar" aria-label="Navegação principal">
-        <div class="nav-desktop">
-          <div class="nav-more nav-more-only">
-            <button class="nav-more-btn" id="nav-more-btn" type="button" aria-expanded="false" aria-controls="nav-more-panel">
-              <span>Explorar</span>
-              <span class="nav-more-arrow" aria-hidden="true">▾</span>
-            </button>
-            <div class="nav-more-panel" id="nav-more-panel">
-              <a href="#performance">Performance</a>
-              <a href="#galeria">Modelos</a>
-              <a href="#curiosidades">Fatos Motor</a>
-              <a href="#quiz">Quiz Piloto</a>
-              <a href="#tecnologia">Tecnologia</a>
-              <a href="#video">On-Board</a>
-              <a href="#contato">Contato</a>
-            </div>
-          </div>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo"><h1>AUTOPRIME</h1></div>
+            <nav>
+                <ul class="nav-links" style="display: flex; gap: 30px; list-style: none;">
+                    <li><a href="#inicio" style="color: white; text-decoration: none; font-weight: 600;">Home</a></li>
+                    <li><a href="#galeria" style="color: white; text-decoration: none; font-weight: 600;">Modelos</a></li>
+                    <li><a href="#quiz" style="color: white; text-decoration: none; font-weight: 600;">Test Drive</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <button class="hamburger" id="menu-toggle" aria-label="Abrir menu" aria-controls="nav-links" aria-expanded="false">
-          ☰
-        </button>
+    <main>
+        <section id="inicio" class="hero-section reveal">
+            <div class="hero-shell">
+                <div class="hero-copy">
+                    <span class="eyebrow">High Performance Division</span>
+                    <h1>Engenharia que desafia os limites.</h1>
+                    <p class="hero-lead">Sinta a fusão perfeita entre aerodinâmica ativa e propulsão eletrificada. Projetado para quem não aceita o segundo lugar.</p>
+                    
+                    <div class="hero-actions" style="margin-top: 30px;">
+                        <a href="#galeria" class="action-btn">Explorar Fleet</a>
+                        <a href="#" class="secondary-btn" style="color: white; margin-left: 20px;">Ficha Técnica</a>
+                    </div>
 
-        <ul class="nav-links nav-links-mobile" id="nav-links">
-          <li><a href="#performance">Performance</a></li>
-          <li><a href="#galeria">Modelos</a></li>
-          <li><a href="#curiosidades">Curiosidades</a></li>
-          <li><a href="#quiz">Quiz</a></li>
-          <li><a href="#tecnologia">Tecnologia</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+                    <div class="hero-points">
+                        <div class="hero-point"><strong>1.9s</strong><span>0-100 km/h</span></div>
+                        <div class="hero-point"><strong>1200cv</strong><span>Potência Bruta</span></div>
+                        <div class="hero-point"><strong>Carbon</strong><span>Chassis Monocoque</span></div>
+                    </div>
+                </div>
 
-  <!-- Botão de Acessibilidade (Mantido conforme seu JS) -->
-  <button id="accessibility-btn" class="accessibility-fixed" aria-label="Menu de acessibilidade" aria-expanded="false">
-    A+
-  </button>
-
-  <div id="accessibility-menu" class="accessibility-menu hidden" role="dialog" aria-label="Menu de acessibilidade">
-    <button type="button" onclick="increaseFont()">Aumentar fonte</button>
-    <button type="button" onclick="decreaseFont()">Diminuir fonte</button>
-    <button type="button" onclick="toggleContrast()">Alto contraste</button>
-  </div>
-
-  <main>
-    <section id="inicio" class="hero-section reveal">
-      <div class="hero-shell">
-        <div class="hero-copy">
-          <span class="eyebrow">Engenharia de Pista</span>
-          <h1>Potência bruta, controle absoluto e design aerodinâmico</h1>
-          <p class="hero-lead">
-            Da <strong>concepção nos túneis de vento</strong> aos <strong>motores que definem gerações</strong>,
-            nossa linha de performance une tecnologia de ponta e prazer de dirigir.
-          </p>
-          <p>
-            Em cada detalhe, a conexão entre homem e máquina revela que a verdadeira inovação nasce do equilíbrio entre segurança,
-            velocidade e eficiência energética.
-          </p>
-
-          <div class="hero-actions">
-            <a class="action-btn" href="#performance">Ver Performance</a>
-            <a class="secondary-btn" href="#tecnologia">Inovações Tech</a>
-          </div>
-
-          <div class="hero-points" aria-label="Destaques técnicos">
-            <div class="hero-point">
-              <strong>Aerodinâmica</strong>
-              <span>Fluxo de ar otimizado para máxima aderência.</span>
+                <div class="carousel-wrapper">
+                    <img id="carousel-image" src="https://unsplash.com" alt="Carro Esportivo">
+                    <div class="carousel-caption">
+                        <h3 id="carousel-title">Design Aerodinâmico</h3>
+                        <p id="carousel-description">Linhas esculpidas em túnel de vento para estabilidade máxima.</p>
+                    </div>
+                </div>
             </div>
-            <div class="hero-point">
-              <strong>Propulsão</strong>
-              <span>Motores híbridos de alta resposta e torque.</span>
+        </section>
+
+        <section id="curiosidades" class="hero-section reveal" style="text-align: center;">
+            <div class="hero-copy" style="max-width: 800px; margin: 0 auto;">
+                <span class="eyebrow">Driveshaft Insights</span>
+                <h2 style="font-size: 2.5rem; margin: 20px 0;">Você sabia?</h2>
+                <p id="fact-text" style="font-size: 1.2rem; color: var(--muted); min-height: 80px;">O som do motor é afinado como um instrumento musical por engenheiros acústicos.</p>
+                <button id="fact-btn" class="action-btn" style="margin-top: 20px;">Próxima Curiosidade</button>
             </div>
-            <div class="hero-point">
-              <strong>Cockpit</strong>
-              <span>Interface intuitiva focada totalmente no piloto.</span>
-            </div>
-          </div>
-        </div>
+        </section>
+    </main>
 
-        <div class="hero-visual">
-          <div class="hero-image-card">
-            <img src="./img/car-main.png" alt="Carro esportivo em alta velocidade" />
-            <div class="hero-image-overlay">
-              <span>Domine o Asfalto</span>
-              <strong>A performance não é apenas velocidade, é a precisão em cada milímetro do trajeto.</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="performance" class="content-section reveal">
-      <div class="section-heading">
-        <span class="section-tag">Engenharia Elitista</span>
-        <h2>Do Protótipo à Realidade</h2>
-        <p>O processo de criação é dividido em etapas rigorosas para garantir que a tecnologia das pistas chegue com segurança às ruas.</p>
-      </div>
-
-      <div class="process-grid">
-        <article class="surface-block process-card">
-          <div class="process-number">01</div>
-          <h3>Design & Túnel de Vento</h3>
-          <p>Modelagem em argila e simulações digitais para esculpir a menor resistência ao ar possível.</p>
-        </article>
-
-        <article class="surface-block process-card">
-          <div class="process-number">02</div>
-          <h3>Powertrain e Testes</h3>
-          <p>Montagem de motores e sistemas de transmissão sob condições extremas de calor e pressão.</p>
-        </article>
-
-        <article class="surface-block process-card">
-          <div class="process-number">03</div>
-          <h3>Experiência nas Ruas</h3>
-          <p>A entrega final: um veículo que traduz décadas de competição em conforto e esportividade diária.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="galeria" class="content-section reveal">
-      <div class="section-heading">
-        <span class="section-tag">Showroom Virtual</span>
-        <h2>Performance em Detalhes</h2>
-        <p>Explore as máquinas que estão redefinindo os limites da velocidade.</p>
-      </div>
-
-      <div class="surface-block gallery-block">
-        <div class="carousel-wrapper">
-          <button class="carousel-btn left" type="button" onclick="changeSlide(-1)" aria-label="Imagem anterior">❮</button>
-
-          <div class="carousel-slide">
-            <img id="carousel-image" src="./img/car-design.png" alt="Design aerodinâmico" />
-          </div>
-
-          <button class="carousel-btn right" type="button" onclick="changeSlide(1)" aria-label="Próxima imagem">❯</button>
-        </div>
-
-        <div class="carousel-caption">
-          <div>
-            <h3 id="carousel-title">Aerodinâmica Ativa</h3>
-            <p id="carousel-description">Cada curva do chassi é projetada para manter o veículo colado ao solo, garantindo estabilidade máxima em curvas fechadas.</p>
-          </div>
-          <div class="carousel-dots" aria-label="Navegação do carrossel">
-            <button type="button" class="dot active" data-index="0" aria-label="Slide 1"></button>
-            <button type="button" class="dot" data-index="1" aria-label="Slide 2"></button>
-            <button type="button" class="dot" data-index="2" aria-label="Slide 3"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="curiosidades" class="content-section reveal">
-      <div class="section-heading">
-        <span class="section-tag">Fatos Motor</span>
-        <h2>Cultura Automotiva</h2>
-        <p>Curiosidades que todo entusiasta de velocidade precisa conhecer.</p>
-      </div>
-
-      <div class="surface-block info-box">
-        <p id="fact-text">O carro mais rápido do mundo atualmente ultrapassa os 480 km/h com pneus desenvolvidos sob medida.</p>
-        <button id="fact-btn" class="action-btn">Mudar Curiosidade</button>
-      </div>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+</html>
