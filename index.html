@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RevUp | Performance & Engineering</title>
+    <title>RevUp | Performance Automotive & Engineering</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
-    <!-- Atalho de Acessibilidade -->
-    <a href="#content" class="skip-link">Pular para o conteúdo</a>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
     <header class="header" role="banner">
         <div class="container header-inner">
@@ -22,67 +22,87 @@
                 </ul>
             </nav>
 
-            <div class="a11y-controls" role="group" aria-label="Ajustes de Visualização">
-                <button onclick="fontSize(1)" aria-label="Aumentar texto">A+</button>
-                <button onclick="fontSize(-1)" aria-label="Diminuir texto">A-</button>
-                <button onclick="toggleContrast()" id="contrast-toggle" aria-label="Modo de Alto Contraste">◐</button>
+            <div class="a11y-controls" role="group" aria-label="Ajustes de Acessibilidade">
+                <button onclick="fontSize(1)" title="Aumentar Texto" aria-label="Aumentar fonte">A+</button>
+                <button onclick="fontSize(-1)" title="Diminuir Texto" aria-label="Diminuir fonte">A-</button>
+                <button onclick="toggleContrast()" id="contrast-toggle" title="Alto Contraste">◐</button>
             </div>
         </div>
     </header>
 
-    <main id="content">
-        <!-- Hero: O "Motor" da página -->
+    <main id="main-content">
+        <!-- Hero Section com Background Dinâmico -->
         <section class="hero reveal">
-            <div class="container hero-content">
-                <h1>Performance sem compromissos.</h1>
-                <p>Reprogramação, mecânica de elite e consultoria técnica para quem busca o limite do asfalto.</p>
-                <div class="hero-btns">
-                    <a href="#garagem" class="btn-primary">Ver Projetos</a>
-                    <a href="#contato" class="btn-secondary">Agendar Revisão</a>
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="badge">Performance Division</span>
+                    <h1>Engenharia que desafia a física.</h1>
+                    <p>Especialistas em reprogramação eletrônica, calibração de chassis e mecânica de alta performance para máquinas de elite.</p>
+                    <div class="hero-btns">
+                        <a href="#garagem" class="btn-primary">Ver Projetos</a>
+                        <a href="#servicos" class="btn-secondary">Nossos Serviços</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://unsplash.com" alt="Motor de alta performance exposto">
                 </div>
             </div>
         </section>
 
-        <!-- Garagem: Injetada via JS -->
+        <!-- Garagem Dinâmica -->
         <section id="garagem" class="section reveal">
             <div class="container">
-                <h2 class="section-title">Nossa Garagem</h2>
+                <div class="section-header">
+                    <h2 class="section-title">Nossa Garagem</h2>
+                    <p>Projetos recentes que saíram do nosso dinamômetro diretamente para as pistas.</p>
+                </div>
                 <div id="grid-carros" class="grid-layout">
-                    <!-- Cards dinâmicos aqui -->
+                    <!-- Injetado via JS -->
                 </div>
             </div>
         </section>
 
-        <!-- Carrossel de Peças/Tecnologia -->
-        <section class="section section-dark reveal">
+        <!-- Carrossel de Componentes Técnicos -->
+        <section id="servicos" class="section section-dark reveal">
             <div class="container">
-                <h2 class="section-title">Tecnologia de Pista</h2>
-                <div class="carousel" role="region" aria-label="Galeria de Componentes">
-                    <div id="carousel-track" class="carousel-track"></div>
-                    <div class="carousel-btns">
-                        <button onclick="moveCarousel(-1)" aria-label="Anterior">❮</button>
-                        <button onclick="moveCarousel(1)" aria-label="Próximo">❯</button>
+                <div class="section-header">
+                    <h2 class="section-title">Especialidades</h2>
+                </div>
+                <div class="carousel" role="region" aria-label="Carrossel de tecnologia">
+                    <div id="carousel-track" class="carousel-track">
+                        <!-- Injetado via JS -->
+                    </div>
+                    <div class="carousel-controls">
+                        <button onclick="moveCarousel(-1)" aria-label="Slide anterior">❮</button>
+                        <button onclick="moveCarousel(1)" aria-label="Próximo slide">❯</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Acordeão de FAQ -->
+        <!-- FAQ com Acordeão -->
         <section id="faq" class="section reveal">
             <div class="container container-narrow">
-                <h2 class="section-title">Dúvidas Técnicas</h2>
-                <div id="faq-list" class="accordion-group"></div>
+                <div class="section-header">
+                    <h2 class="section-title">Dúvidas Técnicas</h2>
+                </div>
+                <div id="faq-list" class="accordion-group">
+                    <!-- Injetado via JS -->
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 RevUp Performance. Engenharia Full-Stack aplicada.</p>
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <div class="logo">REV<span>UP</span></div>
+                <p>Onde a engenharia de precisão encontra a paixão pela velocidade.</p>
+            </div>
+            <p class="copyright">&copy; 2026 RevUp Performance. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
