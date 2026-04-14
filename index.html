@@ -3,72 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REVUP | Ultra-Performance Engineering</title>
+    <title>REVUP | Engenharia de Performance Automotiva</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fontes: Inter para leitura e Michroma para aspecto técnico futurista -->
     <link href="https://googleapis.com" rel="stylesheet">
 </head>
-<body class="dark-engine">
-    <!-- Cursor Personalizado (Interação Premium) -->
+<body>
     <div id="custom-cursor"></div>
 
     <header class="top-nav">
         <div class="container nav-box">
             <div class="brand">REV<span>UP</span></div>
-            <nav aria-label="Navegação de Elite">
+            <nav>
                 <ul class="menu-list">
-                    <li><a href="#hangar" class="nav-link">Hangar</a></li>
-                    <li><a href="#lab" class="nav-link">O Laboratório</a></li>
-                    <li><a href="#contato" class="nav-link">Consultoria</a></li>
+                    <li><a href="#showroom">Projetos</a></li>
+                    <li><a href="#tecnologia">Metodologia</a></li>
+                    <li><a href="#sobre">A Oficina</a></li>
                 </ul>
             </nav>
-            <div class="controls">
-                <button onclick="engine.ui.zoom(1.1)" aria-label="Zoom In">A+</button>
-                <button onclick="engine.ui.contrast()" class="btn-neon">◐</button>
+            <div class="a11y-controls">
+                <button onclick="engine.ui.zoom(1.1)">A+</button>
+                <button onclick="engine.ui.contrast()">◐</button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero: Impacto Cinematográfico -->
+        <!-- Seção de Impacto -->
         <section class="hero-split">
             <div class="hero-info reveal">
-                <span class="label-tech">// RAW POWER UNLEASHED</span>
-                <h1>PRECISÃO <br><span class="glitch">ABSOLUTA</span></h1>
-                <p>Projetamos o impossível. Calibração de motores, aerodinâmica computacional e dinâmica veicular de nível competitivo.</p>
+                <span class="label-tech">// PERFORMANCE SEM COMPROMISSOS</span>
+                <h1>ESTADO DA <br><span class="glitch">ARTE.</span></h1>
+                <p>Nós não apenas consertamos carros. Nós os reconstruímos para desafiar as leis da física. Deixe o padrão de fábrica para trás e sinta o que sua máquina é realmente capaz de entregar.</p>
                 <div class="btn-group">
-                    <a href="#hangar" class="btn-prime">Explorar Fleet</a>
-                    <a href="#lab" class="btn-outline">Ver Protocolos</a>
+                    <a href="#showroom" class="btn-prime">Ver Garagem</a>
+                    <a href="#tecnologia" class="btn-outline">Nossa Ciência</a>
                 </div>
             </div>
             <div class="hero-visual reveal">
-                <div class="image-reveal">
-                    <img src="https://unsplash.com" alt="Supercarro Detalhe">
-                </div>
+                <img src="https://unsplash.com" alt="Supercarro em iluminação dramática">
             </div>
         </section>
 
-        <!-- Seção de Dados Dinâmicos -->
-        <section id="hangar" class="section container">
+        <!-- Grade de Projetos Reais -->
+        <section id="showroom" class="section container">
             <div class="section-meta reveal">
-                <h2 class="title-h2">Hangar de Performance</h2>
-                <div class="divider"></div>
+                <h2 class="title-h2">Showroom de Performance</h2>
+                <p>Cada projeto abaixo passou por centenas de horas de calibração em dinamômetro e testes de pista.</p>
             </div>
             <div id="showroom-mount" class="fleet-grid">
-                <!-- Injeção via Componentes JS -->
+                <!-- Cards renderizados via JS -->
             </div>
         </section>
 
-        <!-- Seção de Tecnologia (Expandables) -->
-        <section id="lab" class="section-dark">
+        <!-- Metodologia Técnica -->
+        <section id="tecnologia" class="section-dark">
             <div class="container grid-2 reveal">
                 <div class="lab-text">
-                    <h2 class="title-h2">The Lab</h2>
-                    <p>Nossa metodologia envolve o uso de sensores de nível aeroespacial para mapear cada milissegundo de ignição.</p>
+                    <h2 class="title-h2">O Laboratório</h2>
+                    <p>A performance real não vem de peças "plug-and-play". Ela vem de dados. Utilizamos telemetria de ponta para entender cada fluxo de ar e cada centelha de ignição do seu motor.</p>
                     <div id="accordion-mount"></div>
                 </div>
                 <div class="lab-visual">
-                    <img src="https://unsplash.com" alt="Motor em Teste">
+                    <img src="https://unsplash.com" alt="Motor sendo calibrado">
                 </div>
             </div>
         </section>
@@ -76,8 +72,14 @@
 
     <footer class="footer">
         <div class="container footer-inner">
-            <div class="brand">REV<span>UP</span></div>
-            <p>© 2026 // High Performance Engineering</p>
+            <div class="footer-col">
+                <div class="brand">REV<span>UP</span></div>
+                <p>Engenharia de precisão para entusiastas que buscam o limite absoluto do asfalto.</p>
+            </div>
+            <div class="footer-col">
+                <p><strong>Localização:</strong> Performance District, Hangar 01</p>
+                <p><strong>Contato:</strong> 0800 700 NITRO</p>
+            </div>
         </div>
     </footer>
 
